@@ -7,7 +7,7 @@
 \usepackage[UKenglish]{isodate}
 \usepackage{graphicx}
 \usepackage{tabularx}
-\usepackage[margin=1.0in,showframe]{geometry}
+\usepackage[margin=1.0in]{geometry}
 \usepackage{setspace}
 
 % Control link colors
