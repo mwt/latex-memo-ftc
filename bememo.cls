@@ -34,8 +34,8 @@
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 
-% Renew the maketitle command
-\renewcommand{\maketitle}{
+% Renew the maketitle command when there is no titlepage
+\renewcommand{\@maketitle}{
     \begin{singlespace}
         \noindent\hspace{-0.325in}% Move the FTC seal to the left of the margin
         \begin{minipage}{1.5in}
