@@ -35,22 +35,22 @@
 % Renew the title
 \renewcommand{\maketitle}{
     \begin{singlespace}
-        \noindent\begin{minipage}{10em}
-            \begin{center}
-                \includegraphics[width=6em]{seal.pdf} \\
-                \vspace{0.2em}
-                \footnotesize Bureau of Economics
-            \end{center}
+        \noindent\hspace{-2.5em}
+        \begin{minipage}{10em}
+            \centering
+            \includegraphics[width=5em]{seal.pdf} \\
+            \vspace{0.2em}
+            \footnotesize Bureau of Economics
         \end{minipage}
-        \hspace{-10em}
+        \hspace{-8.5em}
         \hfill
-        \begin{minipage}{\linewidth-0.5em}
-            \begin{center}
-                \scriptsize UNITED STATES OF AMERICA \\
-                \normalsize FEDERAL TRADE COMMISSION \\
-                \scriptsize WASHINGTON, D.C. 20580
-            \end{center}
+        \begin{minipage}{\linewidth}
+            \centering
+            \scriptsize UNITED STATES OF AMERICA \\
+            \normalsize FEDERAL TRADE COMMISSION \\
+            \scriptsize WASHINGTON, D.C. 20580
         \end{minipage}
+        \hfill
         \vspace{0.3in}
         \begin{center} \bf{ MEMORANDUM } \end{center}
         \vspace{.5in}
