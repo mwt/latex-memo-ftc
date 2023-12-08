@@ -4,11 +4,10 @@
 \LoadClassWithOptions{article}
 
 % Load Packages
-\usepackage{amsmath,amssymb,amstext,calc}
 \usepackage[UKenglish]{isodate}
 \usepackage{graphicx}
 \usepackage{tabularx}
-\usepackage[margin=1.0in]{geometry}
+\usepackage[margin=1.0in,showframe]{geometry}
 \usepackage{setspace}
 
 % Control link colors
@@ -23,52 +22,50 @@
 % Use iso date format
 \cleanlookdateon
 
+% Set spacing
+\doublespacing
+
 % Define new commands
 \DeclareRobustCommand*{\recommendation}[1]{\gdef\@recommendation{#1}}
 
-% Renew commands
+% Renew section commands
 \renewcommand{\sectionautorefname}{Section}
 %%%% Roman numerals for section numbering (Follows BE style guide)
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 
-% Renew the title
+% Renew the maketitle command
 \renewcommand{\maketitle}{
     \begin{singlespace}
-        \noindent\hspace{-2.5em}
-        \begin{minipage}{10em}
+        \noindent\hspace{-0.325in}% Move the FTC seal to the left of the margin
+        \begin{minipage}{1.5in}
             \centering
-            \includegraphics[width=5em]{seal.pdf} \\
+            \includegraphics[width=0.85in]{seal.pdf} \\
             \vspace{0.2em}
             \footnotesize Bureau of Economics
-        \end{minipage}
-        \hspace{-8.5em}
-        \hfill
+        \end{minipage}%
+        \hspace{-1.175in}% Should be minipage width (1.5in) - seal margin (0.325in)
         \begin{minipage}{\linewidth}
             \centering
             \scriptsize UNITED STATES OF AMERICA \\
             \normalsize FEDERAL TRADE COMMISSION \\
             \scriptsize WASHINGTON, D.C. 20580
         \end{minipage}
-        \hfill
         \vspace{0.3in}
         \begin{center} \bf{ MEMORANDUM } \end{center}
-        \vspace{.5in}
-        \begin{tabularx}{\textwidth}{lllX}
-            To:             &  & Commission       \\
-            \\
-            From:           &  & \@author         \\
-            \\
-            Re:             &  & \@title          \\
-            \\
-            Date:           &  & \@date           \\
+        \vspace{0.5in}
+        \begin{tabularx}{\textwidth}{llX}
+            To:             &  & Commission       \\[1em]
+            From:           &  & \@author         \\[1em]
+            Re:             &  & \@title          \\[1em]
+            Date:           &  & \@date
             % Add recommendation if it exists
-            \ifx\@recommendation\undefined\else   \\
+            \ifx\@recommendation\undefined        \\
+            \else                                 \\[1em]
             Recommendation: &  & \@recommendation \\
             \fi
         \end{tabularx}
-        \vspace{.3in}
-        \medbreak
+        \vspace{0.3in}
         %%%% The following lines add the table of contents. Comment out to remove it.
         \tableofcontents
     \end{singlespace}
@@ -76,6 +73,3 @@
 
 % Redefine the \and command to spefify multiple authors
 \renewcommand{\and}{\\&&}
-
-% Set spacing
-\doublespacing
