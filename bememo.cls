@@ -1,7 +1,16 @@
 \ProvidesClass{bememo}[2023/12/07 v1.0 Federal Trade Commission BE Memo Class]
 
+% Define the final option
+\newcommand{\@bememoprefix}{**DRAFT** }
+\DeclareOption{final}{\renewcommand{\@bememoprefix}{}}
+
+% Pass unknown options to the article class
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+
 % Load the Base Class
-\LoadClassWithOptions{article}
+\ProcessOptions\relax
+\LoadClass{article}
+
 
 % Load Packages
 \usepackage[UKenglish]{isodate}
@@ -9,6 +18,7 @@
 \usepackage{tabularx}
 \usepackage[margin=1.0in]{geometry}
 \usepackage{setspace}
+\usepackage{parskip}
 
 % Control link colors
 \usepackage{hyperref}
@@ -26,16 +36,20 @@
 \doublespacing
 
 % Define new commands
-\DeclareRobustCommand*{\recommendation}[1]{\gdef\@recommendation{#1}}
+\DeclareRobustCommand*{\recommendation}[1]{\gdef\@recommendationrow{\\[1em] Recommendation: &  & #1}}
+\DeclareRobustCommand*{\summary}[1]{\gdef\@summaryrow{\\[1em] Summary: &  & #1}}
 
 % Renew section commands
 \renewcommand{\sectionautorefname}{Section}
 %%%% Roman numerals for section numbering (Follows BE style guide)
 \renewcommand{\thesection}{\Roman{section}}
-\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsection}{\thesection.\Alph{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 
 % Renew the maketitle command when there is no titlepage
 \renewcommand{\@maketitle}{
+    \ifx\@summaryrow\undefined\newcommand{\@summaryrow}{}\fi
+    \ifx\@recommendationrow\undefined\newcommand{\@recommendationrow}{}\fi
     \begin{singlespace}
         \noindent\hspace{-0.325in}% Move the FTC seal to the left of the margin
         \begin{minipage}{1.5in}
@@ -52,18 +66,17 @@
             \scriptsize WASHINGTON, D.C. 20580
         \end{minipage}
         \vspace{0.3in}
-        \begin{center} \bf{ MEMORANDUM } \end{center}
+        \begin{center} \bf{ {\@bememoprefix}MEMORANDUM } \end{center}
         \vspace{0.5in}
         \begin{tabularx}{\textwidth}{llX}
             To:             &  & Commission       \\[1em]
             From:           &  & \@author         \\[1em]
             Re:             &  & \@title          \\[1em]
             Date:           &  & \@date
+            % Add summary if it exists
+            \@summaryrow
             % Add recommendation if it exists
-            \ifx\@recommendation\undefined        \\
-            \else                                 \\[1em]
-            Recommendation: &  & \@recommendation \\
-            \fi
+            \@recommendationrow
         \end{tabularx}
         \vspace{0.3in}
         %%%% The following lines add the table of contents. Comment out to remove it.

@@ -1,4 +1,13 @@
-\documentclass[12pt]{bememo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is a template for BE memos. It is based on the article class. The
+% following options are available:
+%  - final: do not specify that the current version is a draft
+% The bememo class also uses the following commands which are not present in
+% the article class:
+%  - \summary{...}: sets the summary line
+%  - \recommendation{...}: sets the recommendation line (currently unused)
+
+\documentclass[12pt,final]{bememo}
 
 \usepackage{amsmath,amssymb,amstext}
 \usepackage{econlipsum}
@@ -6,7 +15,12 @@
 \title{ASide-BSide, Matter Number 000-0000}
 \author{Matthew Panhans, Economist \and Matthew W. Thomas, Economist}
 \date{\today}
-\recommendation{Summary or recommendation line here.}
+
+% Use this command to set the summary of the memo
+\summary{This is a summary of the memo. You should change this.}
+
+% Alternatively, you can set a recommendation line
+%\recommendation{This is a reccomendation line. Recommendations and summaries are unlikely to coexist.}
 
 \begin{document}
 
@@ -29,8 +43,12 @@ Executive summary here.
 
 \econ[5-7]
 
-\subsection{Another Subsection}
+\subsubsection{A Subsubsection}
 
 \econ[8-10]
+
+\subsection{Another Subsection}
+
+\econ[11-15]
 
 \end{document}
