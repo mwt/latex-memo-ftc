@@ -2,12 +2,13 @@
 % This is a template for BE memos. It is based on the article class. The
 % following options are available:
 %  - final: do not specify that the current version is a draft
+%  - screening: change "To" line to Merger Screening Committee
 % The bememo class also uses the following commands which are not present in
 % the article class:
 %  - \summary{...}: sets the summary line
 %  - \recommendation{...}: sets the recommendation line (currently unused)
 
-\documentclass[12pt,final]{bememo}
+\documentclass[12pt,final,screening]{bememo}
 
 \usepackage{amsmath,amssymb,amstext}
 \usepackage{econlipsum}
@@ -25,6 +26,7 @@
 \begin{document}
 
 \maketitle
+\tableofcontents
 
 \section*{Executive Summary}\label{sec:exec}
 \addcontentsline{toc}{section}{\nameref{sec:exec}}

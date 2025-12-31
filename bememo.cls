@@ -4,6 +4,10 @@
 \newcommand{\@bememoprefix}{**DRAFT** }
 \DeclareOption{final}{\renewcommand{\@bememoprefix}{}}
 
+% Define the screening option
+\newcommand{\@bememoto}{Commission}
+\DeclareOption{screening}{\renewcommand{\@bememoto}{Merger Screening Committee}}
+
 % Pass unknown options to the article class
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 
@@ -46,6 +50,9 @@
 \renewcommand{\thesubsection}{\thesection.\Alph{subsection}}
 \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Renew the maketitle command when there is no titlepage
 \renewcommand{\@maketitle}{
     \ifx\@summaryrow\undefined\newcommand{\@summaryrow}{}\fi
@@ -69,20 +76,29 @@
         \begin{center} \bf{ {\@bememoprefix}MEMORANDUM } \end{center}
         \vspace{0.5in}
         \begin{tabularx}{\textwidth}{llX}
-            To:             &  & Commission       \\[1em]
-            From:           &  & \@author         \\[1em]
-            Re:             &  & \@title          \\[1em]
-            Date:           &  & \@date
+            To:   &  & \@bememoto \\[1em]
+            From: &  & \@author   \\[1em]
+            Re:   &  & \@title    \\[1em]
+            Date: &  & \@date
             % Add summary if it exists
             \@summaryrow
             % Add recommendation if it exists
             \@recommendationrow
         \end{tabularx}
         \vspace{0.3in}
-        %%%% The following lines add the table of contents. Comment out to remove it.
-        \tableofcontents
     \end{singlespace}
 }
 
-% Redefine the \and command to spefify multiple authors
+
+% Redefine the \and command to specify multiple authors
 \renewcommand{\and}{\\&&}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of Contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make the table of contents single spaced
+\renewcommand{\tableofcontents}{
+    \begin{singlespace}
+        \@starttoc{toc}
+    \end{singlespace}
+}
