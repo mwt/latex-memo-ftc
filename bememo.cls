@@ -85,7 +85,6 @@
             % Add recommendation if it exists
             \@recommendationrow
         \end{tabularx}
-        \vspace{0.3in}
     \end{singlespace}
 }
 
@@ -101,4 +100,26 @@
     \begin{singlespace}
         \@starttoc{toc}
     \end{singlespace}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Signature Lines
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\sigline}[2][\undefined]{
+    \begin{minipage}{0.5\textwidth}
+        \singlespacing
+        \vspace{0.4in}
+        \hrulefill\\
+        \ifx #1\undefined
+            #2
+        \else
+            #2\\
+            #1
+        \fi
+        \vspace{0.2in}
+    \end{minipage}%
+}
+
+\newcommand{\rsigline}[2][\undefined]{
+    \hfill\sigline[#1]{#2}%
 }

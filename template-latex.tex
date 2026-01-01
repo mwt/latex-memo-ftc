@@ -7,6 +7,9 @@
 % the article class:
 %  - \summary{...}: sets the summary line
 %  - \recommendation{...}: sets the recommendation line (currently unused)
+%  - \sigline[Title]{Name}: adds a signature line on the left side of the page (for approvers)
+%  - \rsigline[Title]{Name}: adds a signature line on the right side of the page (for report authors)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt,final,screening]{bememo}
 
@@ -28,6 +31,9 @@
 \maketitle
 \tableofcontents
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Executive Summary}\label{sec:exec}
 \addcontentsline{toc}{section}{\nameref{sec:exec}}
 
@@ -37,20 +43,35 @@ Executive summary here.
 
 \econ[2-3]
 
-\section{A Section}
+\section{Example Section}
 
 \econ[4]
 
-\subsection{A Subsection}
+\subsection{Example Subsection}
 
 \econ[5-7]
 
-\subsubsection{A Subsubsection}
-
+\subsubsection{Example Subsubsection}
 \econ[8-10]
 
 \subsection{Another Subsection}
 
 \econ[11-15]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Signatures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Signatures}
+
+Respectfully submitted,
+
+\rsigline[Economist, Bureau of Economics]{Matthew Panhans}
+
+\rsigline[Economist, Bureau of Economics]{Matthew W. Thomas}
+
+\vspace{0.25in}
+Approved:
+
+\sigline[Director, Bureau of Economics]{Adam Smith}
 
 \end{document}

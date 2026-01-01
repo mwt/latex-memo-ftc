@@ -3,12 +3,12 @@ title: "ASide-BSide, Matter Number 000-0000"
 author: 
     - Matthew Panhans, Economist
     - Matthew W. Thomas, Economist
-date: "2025-12-31"
+date: "1 January 2026"
 fontsize: 12pt
 output:
   pdf_document:
     toc: true
-    toc_depth: 2
+    toc_depth: 3
     number_sections: true
     extra_dependencies: ["econlipsum"]
 documentclass: bememo
@@ -17,7 +17,7 @@ header-includes: |
   \summary{This is a summary of the memo. You should change this.}
 ---
 
-# Executive Summary {-}
+# Executive Summary {.unnumbered}
 
 Executive summary here.
 
@@ -25,18 +25,31 @@ Executive summary here.
 
 \econ[2-3]
 
-# A Section
+# Example Section
 
 \econ[4]
 
-## A Subsection
+## Example Subsection
 
 \econ[5-7]
 
-### A Subsubsection
+### Example Subsubsection
 
 \econ[8-10]
 
 ## Another Subsection
 
 \econ[11-15]
+
+# Signatures {.unlisted .unnumbered}
+
+Respectfully submitted,
+
+\rsigline[Economist, Bureau of Economics]{Matthew Panhans}
+
+\rsigline[Economist, Bureau of Economics]{Matthew W. Thomas}
+
+\vspace{0.25in}
+Approved:
+
+\sigline[Director, Bureau of Economics]{Adam Smith}
